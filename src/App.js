@@ -35,15 +35,19 @@ class BooksApp extends React.Component {
 
     searchBook(query) {
         BooksAPI.search(query).then(library => {
-            // console.log(this.state.books)
-            // this.setState((state) => ({
-            //     library: state.library.filter((c) => c.id == books.id)
-            // }))
-            this.setState({library})
+            let results = library.map(library_book => {
+                let find_results = this.state.books.find( booksOnShelf => booksOnShelf['id'] === library_book['id'])
+                if (find_results !== undefined){
+                    library_book = find_results
+                    return library_book
+                }else{
+                    library_book["shelves"] = "none"
+                    return library_book
+                }
+            })
+            console.log(results)
+            this.setState({library: results})
 
-            // this.setState({library: this.state.books([this.state.library])})
-            // this.setState({library: this.state.library.concat(this.state.books)})
-            // this.setState({library: this.state.library.concat([this.state.books])});
 
         })
     }

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Bookshelves from './Bookshelves'
 
 class ListBooks extends Component {
+
     static propTypes = {
         books: PropTypes.array.isRequired,
     };
@@ -40,7 +41,7 @@ class ListBooks extends Component {
                                         <Link
                                             to="/search"
                                             className='add-contact'
-                                        >Add Contacts</Link>
+                                        >Add Books</Link>
                                     </div>
                                 </div>
                             </div>

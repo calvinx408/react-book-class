@@ -2,14 +2,12 @@ import React from 'react'
 
 
 function Bookshelves(props) {
-    const booksUpdate = props.booksUpdate
-    const shelf = props.shelf
     return (
         <div className="bookshelf">
             <h2 className="bookshelf-title">{props.title}</h2>
             <div className="bookshelf-books">
 
-                <ol className="books-grid"> {props.books.filter(book => book.shelf === shelf).map((book) => (
+                <ol className="books-grid"> {props.books.filter(book => book.shelf === props.shelf).map((book) => (
                     <li key={book.id}>
                         <div className="book">
                             <div className="book-top">
@@ -20,7 +18,7 @@ function Bookshelves(props) {
                                 }}>
                                 </div>
                                 <div className="book-shelf-changer">
-                                    <select onChange={booksUpdate} name={book.id}
+                                    <select onChange={props.booksUpdate} name={book.id}
                                             value={book.shelf}>
 
                                         <option value="none" disabled>Move to...</option>

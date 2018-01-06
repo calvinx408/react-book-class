@@ -68,7 +68,8 @@ class SearchBooks extends Component {
                                                     }}>
                                                     </div>
                                                     <div className="book-shelf-changer">
-                                                        <select onChange={booksUpdate} name={library.id} value="none" >
+                                                        <select onChange={booksUpdate} name={library.id} value={library.shelves} >
+                                                            {console.log(library.shelves)}
                                                             <option value="none" disabled>Move to...</option>
                                                             <option value="currentlyReading">Currently Reading</option>
                                                             <option value="wantToRead">Want to Read</option>
